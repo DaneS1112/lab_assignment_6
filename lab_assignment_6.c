@@ -5,20 +5,28 @@
 
 int search(int numbers[], int low, int high, int value) {
 	int mid;
+	
+	// Validity check of range.
 	if (low > high) {
 		return -1;
 	}
 	else
 	{
+		// Calculate middle index
 		mid = low + ((high - low) / 2);
+		
+		
 		if (numbers[mid] == value) {
 			return mid;
 		}
+
+		// Check if value is to the left/ less than the value @ middle index
 		else if (numbers[mid] > value) {
 			return search(numbers, low, mid - 1, value);
 		}
 		else
 		{
+		// If not on left then perform recurssive function to the right(greater) of  mid.
 			return search(numbers, mid + 1, high, value);
 		}
 	}
